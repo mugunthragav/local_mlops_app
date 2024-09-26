@@ -9,7 +9,7 @@ import pandas as pd
 from models.models_config import models
 
 # Set the MLflow tracking URI to a local path
-mlflow.set_tracking_uri("file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns")
+mlflow.set_tracking_uri("mlruns")
 
 
 def load_data():

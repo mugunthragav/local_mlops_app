@@ -7,6 +7,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from models.models_config import models
+os.makedirs("mlruns", exist_ok=True)
 
 # Set the MLflow tracking URI to a local path
 mlflow.set_tracking_uri("mlruns")

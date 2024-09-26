@@ -30,6 +30,10 @@ def train_all_models(data):
     experiment_name = "House_Pricing_Model_local"
     mlflow.set_experiment(experiment_name)
 
+    # Preprocessing: Encode categorical features
+    categorical_columns = ['mainroad', 'guestroom', 'furnishingstatus']  # Update with your actual categorical columns
+    data = pd.get_dummies(data, columns=categorical_columns, drop_first=True)
+
     X = data.drop('price', axis=1)
     y = data['price']
 

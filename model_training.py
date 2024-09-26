@@ -9,7 +9,7 @@ import pandas as pd
 from models.models_config import models
 
 # Set the MLflow tracking URI to a local path
-mlflow.set_tracking_uri("")
+mlflow.set_tracking_uri("mlruns")
 
 
 def load_data():
@@ -81,7 +81,7 @@ def train_all_models(data):
     print(f"Best Model: {best_model['model_name']} with RMSE: {best_model['rmse']}")
 
     # Log the best model in MLflow and save the model URI
-    mlflow.sklearn.log_model(best_model['model'], artifact_path="best_model")
+    mlflow.sklearn.log_model(best_model['model'], artifact_path="mlruns/best_model")
     best_model_uri = f"runs:/{mlflow.active_run().info.run_id}/best_model"
 
     # End the previous run

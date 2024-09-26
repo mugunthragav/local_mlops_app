@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns/857171213759945891
+creation_time: 1727366938237
+experiment_id: '857171213759945891'
+last_update_time: 1727366938237
+lifecycle_stage: active
+name: House_Pricing_Model_local

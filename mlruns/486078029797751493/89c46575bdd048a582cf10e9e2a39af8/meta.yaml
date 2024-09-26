@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns/486078029797751493/89c46575bdd048a582cf10e9e2a39af8/artifacts
+end_time: 1727365869783
+entry_point_name: ''
+experiment_id: '486078029797751493'
+lifecycle_stage: active
+run_id: 89c46575bdd048a582cf10e9e2a39af8
+run_name: suave-sponge-518
+run_uuid: 89c46575bdd048a582cf10e9e2a39af8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727365861489
+status: 3
+tags: []
+user_id: Admin

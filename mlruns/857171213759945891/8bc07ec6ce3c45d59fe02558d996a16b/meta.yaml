@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns/857171213759945891/8bc07ec6ce3c45d59fe02558d996a16b/artifacts
+end_time: 1727368513921
+entry_point_name: ''
+experiment_id: '857171213759945891'
+lifecycle_stage: active
+run_id: 8bc07ec6ce3c45d59fe02558d996a16b
+run_name: gentle-bird-246
+run_uuid: 8bc07ec6ce3c45d59fe02558d996a16b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727368505358
+status: 3
+tags: []
+user_id: Admin

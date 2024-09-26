@@ -1,0 +1,15 @@
+digest: 3dbbfeea
+name: dataset
+profile: '{"num_rows": 436, "num_elements": 5232}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "area", "required": true}, {"type":
+  "long", "name": "bedrooms", "required": true}, {"type": "long", "name": "bathrooms",
+  "required": true}, {"type": "long", "name": "stories", "required": true}, {"type":
+  "double", "name": "mainroad", "required": false}, {"type": "double", "name": "guestroom",
+  "required": false}, {"type": "double", "name": "basement", "required": false}, {"type":
+  "double", "name": "hotwaterheating", "required": false}, {"type": "double", "name":
+  "airconditioning", "required": false}, {"type": "long", "name": "parking", "required":
+  true}, {"type": "double", "name": "prefarea", "required": false}, {"type": "double",
+  "name": "furnishingstatus", "required": false}]}'
+source: '{"tags": {"mlflow.user": "Admin", "mlflow.source.name": "C:\\Users\\Admin\\PycharmProjects\\mlflow\\local_mlops\\model_training.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

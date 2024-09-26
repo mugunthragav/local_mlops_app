@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns/857171213759945891/ba5230fa9ca246af9cefe21a9e4a897f/artifacts
+end_time: 1727366963229
+entry_point_name: ''
+experiment_id: '857171213759945891'
+lifecycle_stage: active
+run_id: ba5230fa9ca246af9cefe21a9e4a897f
+run_name: luxuriant-hog-353
+run_uuid: ba5230fa9ca246af9cefe21a9e4a897f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727366954906
+status: 3
+tags: []
+user_id: Admin

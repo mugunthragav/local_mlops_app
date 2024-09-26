@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1727366971620
+current_stage: None
+description: null
+last_updated_timestamp: 1727366971620
+name: RandomForestModel
+run_id: 5c808058196943a4b37a4b3204f864bd
+run_link: null
+source: file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns/857171213759945891/5c808058196943a4b37a4b3204f864bd/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns/857171213759945891/5c808058196943a4b37a4b3204f864bd/artifacts/model
+user_id: null
+version: 3

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Admin/PycharmProjects/mlflow/local_mlops/mlruns/486078029797751493/47f30d3ba37744b6b0fbe667e5bea078/artifacts
+end_time: 1727365861468
+entry_point_name: ''
+experiment_id: '486078029797751493'
+lifecycle_stage: active
+run_id: 47f30d3ba37744b6b0fbe667e5bea078
+run_name: RandomForestModel
+run_uuid: 47f30d3ba37744b6b0fbe667e5bea078
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727365845676
+status: 3
+tags: []
+user_id: Admin

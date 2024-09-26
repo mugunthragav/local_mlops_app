@@ -1,0 +1,1 @@
+{"model_name": "RandomForestModel", "rmse": 1476269.331738953, "mae": 1117495.481345566, "r2": 0.2414292575436261, "model_uri": "runs:/28dcd572a9624feca20f155f05ddfe1a/best_model"}

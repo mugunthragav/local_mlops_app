@@ -7,11 +7,12 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from models.models_config import models
+
+# Ensure the mlruns directory exists
 os.makedirs("mlruns", exist_ok=True)
 
 # Set the MLflow tracking URI to a local path
 mlflow.set_tracking_uri("mlruns")
-
 
 def load_data():
     local_file = "Housing.csv"  # Local path to your data file
@@ -19,7 +20,6 @@ def load_data():
         print(f"Data file {local_file} does not exist.")
         raise FileNotFoundError(f"Data file {local_file} not found.")
     return pd.read_csv(local_file)
-
 
 def train_all_models(data):
     experiment_name = "House_Pricing_Model_local"
@@ -82,7 +82,7 @@ def train_all_models(data):
     print(f"Best Model: {best_model['model_name']} with RMSE: {best_model['rmse']}")
 
     # Log the best model in MLflow and save the model URI
-    mlflow.sklearn.log_model(best_model['model'], artifact_path="mlruns/best_model")
+    mlflow.sklearn.log_model(best_model['model'], artifact_path="best_model")  # Just use "best_model"
     best_model_uri = f"runs:/{mlflow.active_run().info.run_id}/best_model"
 
     # End the previous run
@@ -90,7 +90,7 @@ def train_all_models(data):
 
     # Start a new run for the final best model registration
     with mlflow.start_run(run_name=f"{best_model['model_name']}_final"):
-        mlflow.sklearn.log_model(best_model['model'], "model", registered_model_name=best_model['model_name'])
+        mlflow.sklearn.log_model(best_model['model'], artifact_path="model", registered_model_name=best_model['model_name'])
 
     # Save best model details to JSON, including the model URI
     with open("best_model_info.json", "w") as f:
@@ -105,9 +105,7 @@ def train_all_models(data):
     # Return the best model class name and instance
     return best_model['model_class_name'], best_model['model']
 
-
 # Main function
 if __name__ == "__main__":
     data = load_data()  # Load data from local file
     best_model_name, best_model = train_all_models(data)
-

@@ -7,8 +7,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from models.models_config import models
 
-# Set the MLflow tracking URI to a writable local path
-mlflow.set_tracking_uri(os.path.join(os.getcwd(), "mlruns"))
+# Set the MLflow tracking URI to a writable local path using GITHUB_WORKSPACE
+mlflow.set_tracking_uri(os.path.join(os.getenv("GITHUB_WORKSPACE", "."), "mlruns"))
 
 
 def load_data():
@@ -80,11 +80,11 @@ def train_all_models(data):
     best_model = min(model_performance, key=lambda x: x['rmse'])
     print(f"Best Model: {best_model['model_name']} with RMSE: {best_model['rmse']}")
 
-    # Log the best model
+    # Log the best model with a relative artifact path
     example_input = X_test.head(1)  # Add example input for signature
-    mlflow.sklearn.log_model(best_model['model'], artifact_path="$GITHUB_WORKSPACE/mlruns", input_example=example_input)
+    mlflow.sklearn.log_model(best_model['model'], artifact_path="best_model", input_example=example_input)
 
-    best_model_uri = f"runs:/{mlflow.active_run().info.run_id}/mlruns/best_model"
+    best_model_uri = f"runs:/{mlflow.active_run().info.run_id}/best_model"
 
     # Save best model details to JSON
     with open("best_model_info.json", "w") as f:

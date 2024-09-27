@@ -10,12 +10,14 @@ COPY . .
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install wget and unzip
+RUN apt-get update && apt-get install -y wget unzip
+
 # Install ngrok
-RUN apt-get update && apt-get install -y wget unzip && \
-    wget https://bin.equinox.io/c/111111/ngrok-stable-linux-amd64.zip && \
-    unzip ngrok-stable-linux-amd64.zip && \
+RUN wget https://bin.equinox.io/c/111111/ngrok-stable-linux-amd64.zip -O ngrok.zip && \
+    unzip ngrok.zip && \
     mv ngrok /usr/local/bin && \
-    rm ngrok-stable-linux-amd64.zip
+    rm ngrok.zip
 
 # Expose the ports for MLflow and Streamlit
 EXPOSE 5000 8501

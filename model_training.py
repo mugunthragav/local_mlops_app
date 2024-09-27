@@ -80,7 +80,7 @@ def train_all_models(data):
 
     # Log the best model
     example_input = X_test.head(1)  # Add example input for signature
-    mlflow.sklearn.log_model(best_model['model'], artifact_path="mlruns/best_model", input_example=example_input)
+    mlflow.sklearn.log_model(best_model['model'], artifact_path="$GITHUB_WORKSPACE/mlruns", input_example=example_input)
 
     best_model_uri = f"runs:/{mlflow.active_run().info.run_id}/mlruns/best_model"
 

@@ -7,14 +7,12 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from models.models_config import models
 
-# Set the MLflow tracking URI to a writable local path using GITHUB_WORKSPACE
-mlflow.set_tracking_uri(os.path.join(os.getenv("GITHUB_WORKSPACE", "."), "mlruns"))
+# Set the MLflow tracking URI to a writable local path
+mlflow.set_tracking_uri(os.path.join(os.getcwd(), "mlruns"))
 
 
 def load_data():
-    # Use relative path to access the CSV file in the GitHub repository workspace
-    local_file = os.path.join(os.getenv("GITHUB_WORKSPACE", "."), "Housing.csv")
-
+    local_file = "Housing.csv"
     if not os.path.exists(local_file):
         print(f"Data file {local_file} does not exist.")
         raise FileNotFoundError(f"Data file {local_file} not found.")
@@ -80,11 +78,11 @@ def train_all_models(data):
     best_model = min(model_performance, key=lambda x: x['rmse'])
     print(f"Best Model: {best_model['model_name']} with RMSE: {best_model['rmse']}")
 
-    # Log the best model with a relative artifact path
+    # Log the best model
     example_input = X_test.head(1)  # Add example input for signature
-    mlflow.sklearn.log_model(best_model['model'], artifact_path="best_model", input_example=example_input)
+    mlflow.sklearn.log_model(best_model['model'], artifact_path="mlruns/best_model", input_example=example_input)
 
-    best_model_uri = f"runs:/{mlflow.active_run().info.run_id}/best_model"
+    best_model_uri = f"runs:/{mlflow.active_run().info.run_id}/mlruns/best_model"
 
     # Save best model details to JSON
     with open("best_model_info.json", "w") as f:

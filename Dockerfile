@@ -1,17 +1,17 @@
-# Use the official Python image as a base
-FROM python:3.9-slim
+# Use an official Python runtime as a parent image
+FROM python:3.8
 
-# Set the working directory
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-# Copy the requirements file
-COPY requirements.txt .
-
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the project files into the container
+# Copy the current directory contents into the container at /usr/src/app
 COPY . .
 
-# Set the command to run the app
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.headless=true"]
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the ports for MLflow and Streamlit
+EXPOSE 5000 8501
+
+# Run MLflow and Streamlit in the background
+CMD ["sh", "-c", "mlflow ui --host 0.0.0.0 --port 5000 & streamlit run app.py --server.port 8501 --server.headless true"]

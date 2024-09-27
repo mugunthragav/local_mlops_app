@@ -8,6 +8,4 @@ mlflow==2.0.1  # Compatible with Python 3.8
 
 # For serving the Streamlit application
 streamlit==1.15.0  # Compatible with Python 3.8
-
-
-
+black

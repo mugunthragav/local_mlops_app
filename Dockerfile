@@ -19,4 +19,4 @@ RUN apt-get update && apt-get install -y wget unzip
 EXPOSE 5000 8501
 
 # Run MLflow and Streamlit in the background
-CMD ["sh", "-c", "mlflow ui --host 0.0.0.0 --port 5000 & streamlit run app.py --server.port 8501 --server.headless true"]
+CMD ["sh", "-c", "mlflow ui --host 0.0.0.0 --port 5001 & streamlit run app.py --server.port 8501 --server.headless true"]

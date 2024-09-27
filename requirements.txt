@@ -1,5 +1,13 @@
-streamlit
-mlflow
-pandas
-scikit-learn==1.5.1
-numpy
+# Core libraries for data handling and machine learning
+pandas==1.5.3  # Compatible with Python 3.8
+numpy==1.23.5  # Compatible with Python 3.8
+scikit-learn==1.2.2  # Compatible with Python 3.8
+
+# For MLflow functionality
+mlflow==2.0.1  # Compatible with Python 3.8
+
+# For serving the Streamlit application
+streamlit==1.15.0  # Compatible with Python 3.8
+
+
+

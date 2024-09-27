@@ -12,7 +12,9 @@ mlflow.set_tracking_uri(os.path.join(os.getcwd(), "mlruns"))
 
 
 def load_data():
-    local_file = "Housing.csv"
+    # Use relative path to access the CSV file in the GitHub repository workspace
+    local_file = os.path.join(os.getenv("GITHUB_WORKSPACE", "."), "Housing.csv")
+
     if not os.path.exists(local_file):
         print(f"Data file {local_file} does not exist.")
         raise FileNotFoundError(f"Data file {local_file} not found.")

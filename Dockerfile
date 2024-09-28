@@ -1,22 +1,19 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8
+# Use Python base image
+FROM python:3.8-slim
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# Copy the current directory contents into the container at /usr/src/app
-COPY . .
+# Copy the project files to the working directory
+COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install the required Python dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Install wget and unzip
-RUN apt-get update && apt-get install -y wget unzip
+# Expose ports for Streamlit (8501) and MLflow (5000)
+EXPOSE 8501
+EXPOSE 5000
 
-
-
-# Expose the ports for MLflow and Streamlit
-EXPOSE 5000 8501
-
-# Run MLflow and Streamlit in the background
-CMD ["sh", "-c", "mlflow ui --host 0.0.0.0 --port 5000 & streamlit run app.py --server.port 8501 --server.headless true"]
+# Default command (entry point) for running the container
+CMD ["bash", "entrypoint.sh"]
